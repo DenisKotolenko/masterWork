@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>IoT Designer</title>
+    <link rel="stylesheet" href="editor/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="editor/lib/bootstrap-theme.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="editor/style.css" rel="stylesheet" type="text/css"></style>
+    <link href="editor/editor.css" rel="stylesheet" type="text/css"></style>
+
+</head>
+<body>
+        <div class="toolbar-container">
+<!-- CONTENT -->
+           <button  data-tooltip="Save layout" id="savelayoutbutton" 
+class="btn1" ><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAEf0lEQVR42pVVe0xTZxQ/97aU0t620AICdqUwBxLcJBthRnDJJFliFjeXyWMYk2XqFnE+Jm7oHqbbVBQz8MVji5KZjcgjZi/2yDR7KN2McQtZBNTxqDwLpU8evfe293bfvZRC6YXB+ee73znf+f3Ouec758NgGbKhsDaXxbDd4PM9CRgkItUgWv/AfXjNzSuv/y7kgy0FOD2vSRIltl2QhEt3xcYlAEEoQSIJB9pDwbjLCaPmIaBp+lNj6nAxGAzssgmyi2pPKxSqQ/ErdTA2auZBvV4PSCNkoNHEQpRaA709D2ByfLy89cobpYsScNFGiq0fItN2v+rv8HDpZq0uCUwIhGGYkACi1NGQoE2EzrttXpYhE40Ne4cWJMgurL6oVEXtiEcO6F+De2oSZHICervvA0WRC2ap069CmTnAbh07aGzYXbkYwchjqx+PtdssYLNaQCYjgEbANE0JAlOTVhi3miBGmw76lAwYfNjDotpUO5iYkvbmfDpAsL6gZg2GsXvEYvFOnT5F3NvdiRLwLVobDjw3ayWcfP81OHKsDtp6WdDEJ4NlZAgmJ1xfGVdbtvIE2QVV23ARXqdURUpkcgWKmIIxy/A8MBuEy9VB+9ysBAS+I6A7fOwS3B0igFCoYMQ8AB6a3InlFFUmgy+sU61ZIcFxHCbGHUC6p0Kiz1kjg59u3ANCrZsGf1obBB44V3geotDN4vwdNksHllN47jNphHyXVCoDp8MKlNsJztGuIKfoRzKgtWEfXG25CYaKZnh+41pB8B9+64ATtdchDPUIoYhEBR8BLLvgjEWuUEVzhfSgQuo1JHxZVTovqrOIYD//
+feuvTlj3VNoC4NcCd0ehjES3ys4RVPq46CnKzafV2nBAIO0zgvpZ8PY54NPCYZLkFCLIq2BxsQhj/Q3U2vgWv75paIK2zsGAw4xeELzm5xA9LhIBh4llvXyKEYvE+IzB2HgQpm9WRZDDjH6u9A1aYPOrZajwWkFyxsv4sMwtx2k0uMJmgUr8BJ/MIygRBLnacgM+Pv8tyCPjQ2wUSVHYE5s+MBOEYkUAqOntaYL808EEfr2QNH5/B85d/jVEPzkxMYSlP/fuLyqV6tlZoHf8BOWwmIwNtPNrNBoRC4nL6WrBktbv3arV6ZpnpqSxqdRPcCrEgWU8qHhh/3uOE65pB/r6XkKjwoBnbRG50QyS8I7Nh/kDWS8eRQ0jC3KKi1GB2eJE/TIFt7/5aJog76Qggdfrdd/+miH4WZS4bl/Vo6uSiknSjQiO8Ae2FR+HO233BZ0zM1Khvvo9P0FZiD0iIgK6u7rPmv68cIAniEnPI7RJacMatZq4dnk/LEey804E7dGFAbN5xPrPvUEtmD4nA+OaSH1lY1pq2vXcDWuxskMvLAl8z9EvoK2jD0Soqbg3WiaTQ39/H9PzrynH1VV/izsT9OAoU4q2x8XF1emT9WKlUskXainioWmw2+3Q02uacNgc+a4H9T/O2EJeNFVqYSbrExnQe/kM2iqW+KceouH+HcOw5e7uhv65hv8A43HbTsCWhzYAAAAASUVORK5CYII=" title="Save layout" alt="Save"/></button>
+            <button data-tooltip="Save As" id="saveaslayoutbutton"
+class="btn1"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAERklEQVR42qVVf0wbdRR/dz1Kf1xb2jIG2JUycQVBo8syDa0m0ziji8mMAzqWaXSgMsQt08SfGGYydRiHbGNsy4JTQyCiUeOSmWicZpSZJS4EJzC2AmNQ2rXQ0hZ6d+1d/d4hZUcpdvr+ue/7vu/7fN73vfd9h8FtyEO2449yGFYDsdh6wCAPbU2gbw8ew1vPd7z423I+WCrAxWVfSbXE9FFpuqw6KzsXSFINUmk6MBEagoEZuOlyAsMwJ+zmyd3Q0MDdNoGl8vjHKpXm9Zw7jOC96RJAo9EIyOQK0OuzQKvTw8jwEMwGg43dHS+9sSIBH20GMbUfmXb+s3UpPV32lMGYD6MIhGXZhAC0ukzINeTBwOXeKMdSefbOOmdSAovt2Cm1RrsrBzmgXEN4bhYUShJGHFeApqmktzSaCtDN/OCb8u6zd9Y0rUTgvqvwnizftAempzygUJDAIGCGoVdMoxLVha/PxPVhDtXmmJ9d9dpfXeVMnKC0orUEw7hagiCqjKZ1xIhjAF0gFgfwjl0SAWYa14u7BcMgJ9cIUpkcPG4nzIYC39oLPdsEAktFyw5cgrepNRlShVKFIqbB65kUAXR31Ip06/aWZW+Soc0EUqUBt2scIgxVhVkrm9ZCLG1Ap18txXEcQkE/UOE5UfQCQWedmMB2JGm6tKizeH//tKcfs9oOn5TJldUymQJm/FPAcYtd4r3RG18P2ttEIIWWFxbTteY+kS0NvRFSlYEK7gbMUvGpR6nSZPKFjCwpZHfnHkhFrLbmJTsYqNQZqKt8PEFTjI+epsMJaZkn2ZsUuHdgHF7Z//WyNh6TouYQQdkhDickGLfMA5rxjECECsJgz2eJ4P3jYKuqB5lSB6TOkGDHJRLgMbGNzxxkCQmBLz3gd1+FEwdrwfpACZRsqoXL51rE4NXvCXX55s
+x5+KD1R5CR+gQSNsrGsA1bDzBocKXdaggHPdBxuBbMBWsE/Y++IXhuT7NAMg9eD33nTqKBN+/2/idfwtkLThQ1ISKgKZrG7n2i3kWSqtWLrDSUP2aGfTVlosM8SeXLB4T1n7+eioPzEgzNwZYd7wCbnivymQ2FnFjx5rd/0Wg0mxY2TQY9tB/alUrzJIilvFGkB2YCZ7D80rptBqOxa2FKesf7/xP4gmQa7p4vMnq042NjT6NR0YBv3CoJoxkk5Q32rjf/F4Gl7CPhG41Gwxe/Y0lhFuU9+GrLnQX5uykqjAjeEg6YS5/9V7ArPV/Ez/HreYIPQS6Xg+Oao3n0wtG9AsGq4jLSkF80qdfpyJ8+T+31JpPHnz8CLpd7qm9wwgCjp6n4uCbN2x8pMhf9fPH7+pR+o8nk/iffZYevjloD19p/53URmHpd5c7s7Ow201oToVarhUKlIhGGAZ/PB8MjoyH/tL88MNR+dsGWEK3GbNvAxSQN6H/5MFJVKQZ+HU2xH1iWaww7Om/cavgb/7+vToji+jsAAAAASUVORK5CYII=" title="Save layout As" alt="Save As"/></button>
+           <button data-tooltip="Load layout"
+class="btn1"  id="loadLayoutClick" ><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAEoElEQVR42pWVf0xbVRTHz3stpb8LFBibpC0TV5A5jSIhA7Yp/oLoNrIBHcv+cZsGJnM/mKjorCYIYxG2CQyNLhpHxkCjRsNMNGZzVJdpDDEOtsnvn4XS3y1977Wv9fa1dDavRbj/3HffPef7ufeec8/FYBWtQNNR6MWwSvD5HgUMlOjXNOp/xX34+euXXroWyQdbiXBWaTcvnmtq5cXyDyanrAOxWAo8XixQbhLsNivM62eAoqiPdOrZKtBqvasG5FV0nJZIZDVr71PAwryeEfV43MAXCEEuT4b4BDmMjtwFp93e1Hfp5dplAf7VxnGN76KpfcFff8bG8l9IVaTBGBKhaZq1gPiERFiXqoTBv/s9XppQ6rqqZ6IC8jTtn0hl8fvXIgd01uBadIJQJIbR4TtAkkTUXSpU6WhnFjAbF47puipblgPMPZDxULLZZACT0QBCoRgoJExR5LLHKEJx8cdnenzEi2LTbqGTjt/qKaNCgM3l5zdimPcQl8s9oFBt4I4OD6IN+MJESKcR7MbxyASktCm3BHh8ARjmZsDpsH2tyzDsZgB55W17cQ5+QSqL4wlFErRiEhYMsyyNoi0ZUFdZGHUX+XvaIC4+EcQSGczpp8BNEQew/IqW9eCLGUyQr+HhOA4OuwUI1yJr9SHI1kwEeSoyQPNhIOgos/z+FpNhAMvXnPuYLxAd5POFYLUYgXRZwTo/xHLmCWQgkSvBaZ6Gjob9kPtYRgTAOaaPQXdELIlDAZ8DLK/8jEEkkSX6A+lGgVTJCbjYVstyvnrjNrzVdBGOvvgs7Hq+IMoOzoYCIpHGoawy+wEtPv/qSdLFbKuv6wjL0eZwQXVdB2x/
+OjuqeABwJvTt1ySIRQQobfbiXA7mDV6gvstHmf4VbTf0D04jqBdo5wx82nwYstRKlmjv1VtQvC0rACgPpT/gHA74NbGcXadoLoeLL03oLh+DQGY1B84ep6BVq0HiKpZ4ffsP0HttAIq3Pgh1Vc+FfJYa7aF9WPbOegoVrph7gONBwAdMX/B4OjTW7GCJv9P8JVz5ZQBiYkUhu+u/hycHSZAktqnobb1YLFkTAnSfCADKTocMi7dtRCssCo21LV8B4TDB1OwCjC5wo8bE6XDMYFnPvPmzTCZ74h7gtSCgKcw4AClGx9ILdicJjSdKItqFJYfV9j2Wtrl6d6pC0bNUJXXdtUHHUywHL+1GwYv5XzsmyOjSTk1MlKBSocVzdnJcqAbxGMee1xmDnB0n0YURhjmlJMlAb7Ci+7IIN799LwAobYwI8Hg8rpvf0GKmFilzD7fdn55WRRAuBHiDMdhbVQ9/9N+J6Jz9iBo62+uCgAbWvEAggOGh4bNjv7UeYQBJWaXi1LTMWXlCgvjHz1+F1bS80vfDxihhQK+fM/51ezoVxj4jQuVarN7zZKY686fCgoexhprtKxI/dPIL6B+YAA66VP43WigUweTkBD3yz1i+bajzht8m7MGRbqjYl5KSckG1XsWVSqVMoFbS3BQFZrMZRkbHHBaTpcx2t/PK0hzrRZOpNdleH0eL3sstaChZ4UmNo+L+HU17m1zDXZP/nfgXwvDTTlp3h4cAAAAASUVORK5CYII=" title="Load layout" alt="Load"/></button>
+<!-- data-toggle="modal" data-target="#saveLayoutModal" -->         
+  <button id="btn-to-front" data-tooltip="Copy" class="btn1" ><img
+src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAw1BMVEX///92dnjFxct1dXmCgoSL
+i5CWlpuioqeurrO6ur/Gxst3d3nGxsvl5eX09PT///92dnl9fX+As/+BgYSDtf+Ftv+Ht/+It/+J
+uP+Kuf+Li5CLuf6Muv6QvP+Tvv6Uvv6WlpucxP2exf2ioqejyP2kyf2lyf2nyvyrzPyszfyszvyt
+zfutzvyurrO6ur/GxsvIyM3l5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3w8PDx8fHy8vL09PT4
++Pj6+vr///9/3NF/AAAAEHRSTlMAtbW/v7+/v7+/v/Hx/v7+t1uEGwAAAIxJREFUeNplz+cOwiAU
+hmG17sURq7buuo+iuKri5P6vSkwtJeH7+YTkPaTsZUrFQj6XTWso146nUNSdBJ6Xs3i8DJDv/W47
+HXeblRgkZ4ytJz1IYBEMPZfGQCSnbtvrBKBaUZbTlj+YIeiWejFarhB0i/fniLgBcf1DNco2bgfz
+GrXP3QDyE+LYX7T2BfbyEOutXT66AAAAAElFTkSuQmCC" alt="Copy" title="Copy"></button>
+            <button id="btn-to-back" data-tooltip="Paste" class="btn1">
+<img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAulBMVEX///92dnjFxct1dXmCgoSL
+i5CWlpuioqeurrO6ur/Gxst3d3nGxsvl5eX09PT///92dnl6hpt+foKAs/+BgYSDjJqDtf+JlqyL
+i5CLuf6Muv6OjpKQnbSexf2gqryksMakyf2qrbarq7CurrO1uMG5xNi6ur+9vcK/x9fGxsvW1trk
+5eXl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3w8PDx8fHy8vL09PT19fX4+Pj6+vr9/f3///9V
+7H9sAAAAEHRSTlMAtbW/v7+/v7+/v/Hx/v7+t1uEGwAAAIFJREFUeNplz9sWQkAAheFEBwppSiR0
+cJpUoqEk7/9atMY0WrMvv5t/7QG7oTidjEcC9wNJvt7uSOEpPNMEFa8e1O8iQ9nSWM0I1J/ycVnb
+5oJAuyrXdEBA/cr54DpW28LZ427jxf0WBLr/14LbfYRbHcyDU4hbHdAWBtpSefYiswa9YxKpD/Ly
+MwAAAABJRU5ErkJggg=="  alt="Paste" title="Paste"></button>          
+            <button id="btn-clear" data-tooltip="Delete" class="btn1"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADGklEQVRoge2ZTWgUSRTHf68n3eNH2EAE8esiRPTUEAojwZxEPKhXL0ZByHFBkBjd07IqiCAeBK8iih68exFEchCCEyojgXga8CCRze5BRNGeZqZrLz2hM2NnUp2ezKzM71T16lXV/029ft1MCRlQSu0wxsyIyAXgALAtyzpAAHwEnnqed3dubu6H7QJiO8H3/Z2u674GxmzntuEtcEJr/d1mkmO7i+u618lfPMAx4KrtpIEMG002GsaYa8Vi8UGWowcYHx/fHobhZeBObLoI3LRZwzqFlFI1oAAQBEFxaWkptF0jycjISHFoaCiIuzWttWsz3zqFiMUDbFY8QKVSqSa61hnRcgLxsf4JnAP2k73C5EUALIvI88HBwVuzs7NBcnBNAEqpHSLyyhgzvqUSN84bz/NOJZ+5NSlkjJnpYfEAE9Vq9UrSsCbnROR8o73ZCpMXzZVKRCaB243x5hSqE59KHhUmL5oqVV1rvfrDN1eh1X6viIeWSlVIjmUpoz1Fc90NAQ9AKXWn1b0nSJ5GSwAlYCJuX98SOfaUkp01KSQi08DnLZVjx2fHcaaThpY3se/7uz3PO2uMeZgw/9FxaT9nNY1FZCoMwxeLi4v/JB1SP+aUUqbR1lpbf/TlwUY0/HJVqC1jY2MH6/X6JDAYm74VCoVnpVLpQ94+HQmgXq+/BA412S4AR/L22QhZUuiQiNzQWovWWkTkBnC4Qz4dCaCn6AfQbfoBdJt+AN2mH0C36QfQbfoBdJt+AN2mH0C3+d8HkOWSLzTGnFRKbQMwxkzQ9Hdfjj5tsb+TErlvjLkCHI9NNeBeJ3w2pCdtQCn1DdgJ4DjO3vn5
++
+b9tF98Mo6Oj+xzHWY67X7XWv/3ML/UZMMa8b7SjKLqUr7z2iEhyz6U0v/VS6DFwNG7fVEoRRdHDcrn8bw76UvF9f7frulPAXwnzkzT/1BSKr3VKgJ+fvEy8C4LgWNqNUWoKVSqVaq1WOw2UOyatPQtRFJ1Z77qrkDYAsLKy8nV4ePjRwMDAJxHZA+wiW+m1oWqMKTuOcwv4fWFh4ct6zv8BQPRFE7ZPzhYAAAAASUVORK5CYII=" alt="Delete" title="Delete"/></button>
+           <button id="btn-undo" data-tooltip="Undo" class="btn1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABEElEQVR4XsWX4W2DMBCFDysDMAIblBHqCZJuABOkI8AkyQaFCcII3qDZINmAvn8HsjjLLvg+6fuJ3uMOZJkSuZEKHD7TTpiE8IZ2xOiEM0YnnDE64YzRCWeKf4RbWuPgO7rAzmN/wgmOcIgsIIcnlunhXSyQYecT/NpaT5Hpg3PQcgnGUB5q+FBYgUcPO2kCLbzTcVxhmfgbpiO8JE8gYRJ2YQt7OFGYMy04BZrS1iSEsBJ+87g9PuUVyOuIebaCP7CWnjURO4vlCS10wdPwwBJv2AYLHFzCwUEskKHEuF4Nc0r6j2PwQ503gSwlmNErkJmBFGjgDG9ax/EHn4Y6/GreJ2v4gqXmZfZCSlSwI4E/JYY7X+odiRcAAAAASUVORK5CYII=" alt="Undo" title="Undo"/></button>
+           <button id="btn-redo" data-tooltip="Redo" class="btn1"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABD0lEQVR4XsWTwQ2CQBBFRSmAEuhASsAK0JtHrMASwA60grUDsQK1AzrQDqQD/CEkm5CJs5kwmZ+883u7sIsZ54DpeknEcuaIEjjDAB9hGOAjDALICD7AMiIWChKQhUcMO1CCCIRuCwqQg1QQfaUi4sATVIxUfBMRc803kPMC+U1Ef+SPyXfWiKBfga6c/wlrUAE/xU+wJK7+qC/3W00E+xF2Ws+wANye4AU+A36PEDkXkANqHbiAM+jkJ+cDEkLegp0/7Xxy4hmS8o2SnA8Y6zsdOR/QgFZJTgdMrvquIGcDWiJGIJcH3IFohFwU0ADzOdCDUkfAv4LTKFhb38LbMiABX5BZRmyBA6arQaop+AEtOTirltYeOAAAAABJRU5ErkJggg==" alt="Redo" title="Redo"/></button>
+           <button id="btn-A" data-tooltip="A" class="btn1"><img  src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAPABoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9Uq8M8RftV+HvD37Sej/s9TeGL+VNSjht7jxEJVFnZanPBPcW1g64yZJYbZ3ByPvKMHNe5kZGK+WPFH7Bnh3xTrXiDx9dfEvxDD471Xxpb+MrDWo5JRbafJbSR/ZYPsAmEMwjgjMIkb5yHY5H3aAPqcHIyKgPU/Wp1GB1qA9T9aAP/9k=" alt="Annotation" title="Annotation"/></button>
+           
+
+
+            <button id="btn-fullscreen" class="btn1" data-tooltip="Toggle Fullscreen Mode" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAQAAADYBBcfAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAJiS0dEAP+Hj8y/AAAACXBIWXMAAABIAAAASABGyWs+AAABbUlEQVQ4y5WUz07CQBCHP7oloT0KHjSejZjoC+gB9CSJVwzSSoKPJF70aVAfgdCS6MX4J0ZvcrEprYfapi3brcxeOpP5+pvM7Cy8EBAunTlDqihMY5OKJP7MOwFKCyXHwcaA1cCACVY5tgx63LJWjmlLEcEhp5irK4YEuFyUo6EUnWGVoXHqT2aeAS59NRolTrhhmtN16aKrQQebOhZOBvS5olYMfuNgYwIGfdxUsXe0JF1P7JKTZNwG5zgEhCwY00YHBIa84Coi5Rn0mOIxpo0AdI645uw/czXpMqKFDugc84CHm7uEQr45OsafWpt7gmQ4RvLrDsNiZS3B4uFEqiYDXObFYI0Ri9yyWTSwo86LYhKDPdZTfoMm2/RolrUp6nD2Inqxr1L0eeKDXRrJ41JBxN9CqenzyGcGTU2EUvSLJvU8WgaCzys77OcztVLQ5JQD1XoVYQNm0ldCaYJOatEyj4u6VI0NtiTxkLdfAa7UTxSrv/cAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTQtMDEtMThUMTI6NTI6MTMrMDE6MDDIgE2/AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE0LTAxLTE4VDEyOjUyOjAzKzAxOjAwdXf1nQAAAABJRU5ErkJggg==" alt="Fullscreen" title="Fullscreen"/></button>
+           <button id="btn-redo" data-tooltip="G" onclick="uradi()" class="btn1"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAPCAYAAAAVk7TYAAABpklEQVQ4T7VUu6rCUBCcqIjYWMRvsEmhhSIWgqCNhVax8AMEfyGVKNY2loJBFES0s/ETfBZ+gL1gZSMiwVz2wIZz5WokXgOH7ElgZ2d2dhXLsmy/349vP5ZlQXkHzLZtUYuiKOD48U7/Xj2uYI8g9/td5CMlKKZDMRfxCtAVjCuVQekb3eXEj/e/GL4EYwB60/H5fBiNRuh2uzidTggGgyiVSmg2mwiHw47Mz6R0ZUYgLFWr1UKj0UAmk0E2mxWAq9UKg8EAyWQSlCwQCDxtmyszZnQ4HKBpGnK5HBaLxa+ElITd7LlnbACqdjaboVKpYDgcolwuwzAMXC4XxGIx1Go1RKNRoQBJ7UlG2W2TyQTVahXj8RiFQkEALJdLHI9HrNdrpFKpz2Xkfu33eyQSCei6jul0Koo3TVOAbrdbxONxp7eemLHF2ZX1eh29Xg/FYhHpdBrz+Ry73Q6bzeZ/DCLP1O12Q6fTQb/fx/l8RiQSQT6fR7vdhqqqznh4ZiYPtey06/WKUCjk5P14qJmVvAOphwRKruMZpPhr64o3CgHIi/mdRfwDdNxVLxTemFoAAAAASUVORK5CYII="  alt="Export to OpenHAB" title="Export layout"/></button>
+           <button id="btn-R" data-tooltip="R" class="btn1"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAOCAYAAAAxDQxDAAABdklEQVQ4T7WUsauCUBTGP7NBaHBwa2ksgqYUh5ZWm6WhxgKbGtrEQXAQhP6C1tpa293zP3AzanJxc6l8nAv30Yui8r13QVS83N/3nfMdhaIoCvzzOp/PEF6BSIcgCHim5/YbPT9aH4PuYfReqVR+CHkEewv0TlW562d73wJdr1emOk1TjEYjxHGMPM9Rr9dh2zaGwyErK3dS2tHlcoEoikiSBK1Wi12TyQSr1YpBoyhCp9MB7SMIibpfHzk6Ho8MMpvNsFwu4fs+HMdBGIbo9/ugwwjya9DhcICqqqhWq9A0jTnRdR3r9Rq1Wu27fKVLx3tEoG63C0VRIMsyA+12OwwGA1Y2nr7S8SYQqTydTmi325hOpwiCAM1mkznZ7/eQJAlcUGlHPAzkqNFowDRNbLdbeJ4H13Wx2WwwHo//pkekMssyzOdz9Ho9WJbFUrhYLGAYBnPJh7l0GKjmrwaS76F76dLd/uv4rNBcUU94Xx65uA0FRf8LEAMYPs1xrlUAAAAASUVORK5CYII="  alt="Rule editor" title="Rule editor"/></button>
+           
+
+
+
+      <!--  <label data-tooltip="Change Grid Size">Grid size:</label>
+            <input type="range" value="10" min="1" max="50" step="1" id="input-gridsize" />
+            <output id="output-gridsize">10</output> -->
+        </div>
+
+        <div class="stencil-container">
+            <label>IoT Blocks</label>
+            <button class="btn-expand" title="Expand all">+</button>
+            <button class="btn-collapse" title="Collapse all">-</button>
+        </div>
+        <div class="paper-container"></div>
+        <div class="inspector-container"></div>
+
+        <!-- Modal -->
+<div class="modal fade bs-example-modal-lg" id="RuleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+                <nav class="navbar navbar-default" role="navigation">
+                 <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <a class="navbar-brand" href="#">Rules:</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul id="rulecontainer" class="nav navbar-nav">
+                        <!--<li class="active"><a href="#">Rule 1</a></li>-->
+                      </ul>
+                      <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                          <input id="RuleNameText" type="text" class="form-control" placeholder="New Rule name">
+                        </div>
+                        <div id="AddRuleButton" style='cursor:pointer;' class="btn btn-default">Add</div>
+
+                                <div class="btn-group">
+                                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Variables <span class="caret"></span>
+                                  </button>
+                                  <ul class="dropdown-menu" role="menu" id="editor-input-rules">
+                                    <li><a href="#"></a></li>
+                                  </ul>
+                                </div>
+                      </form>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
+                <pre id="editor"></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>&nbsp;Close</button>
+        <button id="savebuttonrule" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span>&nbsp;Save rule</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <script src="editor/joint.js"></script>
+        <script src="editor/joint.shapes.devs.js"></script>
+        <script src="editor/joint.shapes.fsa.js"></script>
+        <script src="editor/joint.shapes.pn.js"></script>
+        <script src="editor/joint.shapes.erd.js"></script>
+        <script src="editor/joint.shapes.uml.js"></script>
+        <script src="editor/joint.shapes.ciot.js"></script>
+        <script src="editor/joint.shapes.org.js"></script>
+        <script src="editor/joint.shapes.logic.js"></script>
+        <script src="editor/handlebars.js"></script>
+        <script src="editor/ui/clipboard.js"></script>
+        <script src="editor/ui/stencil.js"></script>
+        <script src="editor/ui/paperscroller.js"></script>
+        <script src="editor/ui/tooltip.js"></script>
+        <script src="editor/ui/svg.js"></script>
+        <script src="editor/ui/exportTo.js"></script>
+        <script src="editor/ui/commandmanager.js"></script>
+        <script src="editor/ui/validator.js"></script>
+        <script src="editor/ui/forcedirected.js"></script>
+        <script src="editor/ui/layout.js"></script>
+        <script src="editor/ui/websocketCom.js"></script>
+        <script src="editor/ui/keyboard.js"></script>
+        <script src="editor/ui/inputs.js"></script>
+        <script src="editor/ui/editor.js"></script>
+        <script src="editor/ui/base64.js"></script>
+        <script src="editor/ui/properties.js"></script>
+        <script src="editor/elements.js"></script>
+        <script src="joint.shapes.iot.js"></script>
+        <script src="editor/menu.js"></script>
+        <script src="editor/utils.js"></script>
+        <script src="iotlib/generator.js"></script>
+        <script src="iotlib/FileSaver.js"></script>
+        <script src="editor/demo.js"></script>
+        <script src="editor/editor.js"></script>
+
+	<!--[if IE 9]>
+	    <script type="text/javascript">
+	      // SVG Export requires window.btoa/atoa extension to convert binary data (the `b`)
+	      // to base64 (ascii, the `a`). Unfortunately it is not available in IE9.
+	      // To get it working under IE9 you may include compatible solution like `stringencoders`
+	      // (`https://code.google.com/p/stringencoders/source/browse/trunk/javascript/base64.js`)
+	      // and create a global alias `btoa`.
+	      window.btoa = base64.encode
+	      // `-ms-user-select: none` doesn't work in IE9
+	      document.onselectstart = function() { return false; };
+	    </script>
+	<![endif]-->
+
+
+<!-- Latest compiled and minified JavaScript -->
+    <script src="editor/lib/bootstrap.min.js"></script>
+    <script src="./editor/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/xcode");
+        editor.session.setMode("ace/mode/javascript");
+    </script>
+
+
+<!-- Save Layout Modal -->
+<div class="modal fade" id="saveLayoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Save layout to local storage</h4>
+      </div>
+      <div class="modal-body">
+        <form action="">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">Layout name:</span>
+              <input type="text" class="form-control" id="savelayoutname" placeholder="Choose a layout name">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="savelayoutbuttonmodal" >Save layout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+   <!-- Load Layout Modal -->
+<div class="modal fade" id="loadLayoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Save layout to local storage</h4>
+      </div>
+      <div class="modal-body">
+                    <div class="panel panel-default">
+                      <!-- Default panel contents -->
+                      <div class="panel-heading">Load layout:</div>
+                      <ul class="list-group" id="loadlayoutlist">
+
+                      </ul>
+                    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="loadlayoutbutton" >Load layout</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type="file" id="files" name="file"  style="display:none;"/>
+<input type="file" id="diskfile" name="diskfile"  style="display:none;"/>
+</body>
+</html>
+

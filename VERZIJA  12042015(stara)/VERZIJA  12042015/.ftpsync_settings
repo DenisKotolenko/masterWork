@@ -1,0 +1,1 @@
+{"connect":"SFTP","host":"etf.ba","port":"22","user":"root","remoteRoot":"/home/teo/samples/Home/samples/HelloWeb/","privateKeyFile":""}

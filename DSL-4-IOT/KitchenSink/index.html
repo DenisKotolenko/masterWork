@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8"/>
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/> -->
+
+         <title>IoT Designer</title>
+
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" href="../build/rappid.min.css" />
+        <link rel="stylesheet" type="text/css" href="./css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="./css/paper.css" />
+        <link rel="stylesheet" type="text/css" href="./css/inspector.css" />
+        <link rel="stylesheet" type="text/css" href="./css/navigator.css" />
+        <link rel="stylesheet" type="text/css" href="./css/stencil.css" />
+        <link rel="stylesheet" type="text/css" href="./css/halo.css" />
+        <link rel="stylesheet" type="text/css" href="./css/selection.css" />
+        <link rel="stylesheet" type="text/css" href="./css/toolbar.css" />
+        <link rel="stylesheet" type="text/css" href="./css/statusbar.css" />
+        <link rel="stylesheet" type="text/css" href="./css/freetransform.css" />
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+	
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    </head>
+    <body>
+        
+        <div class="toolbar-container">
+           <button title="Save layout file" id="saveaslayoutbutton" class="btn1"><img  src="img/saveas.png" alt="Save As"/></button>
+			<button title="Load layout file" class="btn1"  id="loadLayoutClick" ><img  src="img/folder.png" alt="Load"/></button>
+    
+			<button id="btn-to-front" title="Bring to front" class="btn1" ><img src="img/toFront.png" alt="Copy"></button>
+            <button id="btn-to-back" title="Send to back" class="btn1"><img src="img/toBack.png"  alt="Paste"></button>          
+
+			<button  title="Clear all" id="btn-clear" class="btn1"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADGklEQVRoge2ZTWgUSRTHf68n3eNH2EAE8esiRPTUEAojwZxEPKhXL0ZByHFBkBjd07IqiCAeBK8iih68exFEchCCEyojgXga8CCRze5BRNGeZqZrLz2hM2NnUp2ezKzM71T16lXV/029ft1MCRlQSu0wxsyIyAXgALAtyzpAAHwEnnqed3dubu6H7QJiO8H3/Z2u674GxmzntuEtcEJr/d1mkmO7i+u618lfPMAx4KrtpIEMG002GsaYa8Vi8UGWowcYHx/fHobhZeBObLoI3LRZwzqFlFI1oAAQBEFxaWkptF0jycjISHFoaCiIuzWttWsz3zqFiMUDbFY8QKVSqSa61hnRcgLxsf4JnAP2k73C5EUALIvI88HBwVuzs7NBcnBNAEqpHSLyyhgzvqUSN84bz/NOJZ+5NSlkjJnpYfEAE9Vq9UrSsCbnROR8o73ZCpMXzZVKRCaB243x5hSqE59KHhUmL5oqVV1rvfrDN1eh1X6viIeWSlVIjmUpoz1Fc90NAQ9AKXWn1b0nSJ5GSwAlYCJuX98SOfaUkp01KSQi08DnLZVjx2fHcaaThpY3se/7uz3PO2uMeZgw/9FxaT9nNY1FZCoMwxeLi4v/JB1SP+aUUqbR1lpbf/TlwUY0/HJVqC1jY2MH6/X6JDAYm74VCoVnpVLpQ94+HQmgXq+/BA412S4AR/L22QhZUuiQiNzQWovWWkTkBnC4Qz4dCaCn6AfQbfoBdJt+AN2mH0C36QfQbfoBdJt+AN2mH0C3+d8HkOWSLzTGnFRKbQMwxkzQ9Hdfjj5tsb+TErlvjLkCHI9NNeBeJ3w2pCdtQCn1DdgJ4DjO3vn5
++
+b9tF98Mo6Oj+xzHWY67X7XWv/3ML/UZMMa8b7SjKLqUr7z2iEhyz6U0v/VS6DFwNG7fVEoRRdHDcrn8bw76UvF9f7frulPAXwnzkzT/1BSKr3VKgJ+fvEy8C4LgWNqNUWoKVSqVaq1WOw2UOyatPQtRFJ1Z77qrkDYAsLKy8nV4ePjRwMDAJxHZA+wiW+m1oWqMKTuOcwv4fWFh4ct6zv8BQPRFE7ZPzhYAAAAASUVORK5CYII=" alt="Delete"/></button>
+           <button id="btn-undo" title="Undo" class="btn1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABEElEQVR4XsWX4W2DMBCFDysDMAIblBHqCZJuABOkI8AkyQaFCcII3qDZINmAvn8HsjjLLvg+6fuJ3uMOZJkSuZEKHD7TTpiE8IZ2xOiEM0YnnDE64YzRCWeKf4RbWuPgO7rAzmN/wgmOcIgsIIcnlunhXSyQYecT/NpaT5Hpg3PQcgnGUB5q+FBYgUcPO2kCLbzTcVxhmfgbpiO8JE8gYRJ2YQt7OFGYMy04BZrS1iSEsBJ+87g9PuUVyOuIebaCP7CWnjURO4vlCS10wdPwwBJv2AYLHFzCwUEskKHEuF4Nc0r6j2PwQ503gSwlmNErkJmBFGjgDG9ax/EHn4Y6/GreJ2v4gqXmZfZCSlSwI4E/JYY7X+odiRcAAAAASUVORK5CYII=" alt="Undo"/></button>
+           <button id="btn-redo" title="Redo" class="btn1"><img  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABD0lEQVR4XsWTwQ2CQBBFRSmAEuhASsAK0JtHrMASwA60grUDsQK1AzrQDqQD/CEkm5CJs5kwmZ+883u7sIsZ54DpeknEcuaIEjjDAB9hGOAjDALICD7AMiIWChKQhUcMO1CCCIRuCwqQg1QQfaUi4sATVIxUfBMRc803kPMC+U1Ef+SPyXfWiKBfga6c/wlrUAE/xU+wJK7+qC/3W00E+xF2Ws+wANye4AU+A36PEDkXkANqHbiAM+jkJ+cDEkLegp0/7Xxy4hmS8o2SnA8Y6zsdOR/QgFZJTgdMrvquIGcDWiJGIJcH3IFohFwU0ADzOdCDUkfAv4LTKFhb38LbMiABX5BZRmyBA6arQaop+AEtOTirltYeOAAAAABJRU5ErkJggg==" alt="Redo"/></button>
+           <button id="btn-A" title="Add annotation"  class="btn1"><img  src="img/shapes.png" alt="Annotation" /></button>
+           <button id="btn-fullscreen" class="btn1" title="Fullscreen" ><img src="img/arrows.png" alt="Fullscreen"/></button>
+           <button id="btn-redo"  title="Export to OpenHAB" onclick="uradi()" class="btn1"><img  src="img/interface.png"  alt="Export to OpenHAB" /></button>
+           <button id="btn-R"  title="Rules" class="btn1"><img  src="img/rules.png"  alt="Rule editor" /></button>
+
+        </div>
+        <div class="stencil-container">
+            <label>Stencil</label>
+            <button class="btn-expand" title="Expand all">+</button>
+            <button class="btn-collapse" title="Collapse all">-</button>
+        </div>
+        <div class="paper-container"></div>
+        <div class="inspector-container"></div>
+        <div class="navigator-container"></div>
+        <div class="statusbar-container"><span class="rt-colab"></span></div>
+
+        <!-- Dependencies: -->
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/lodash/index.js"></script>
+        <script src="../node_modules/backbone/backbone.js"></script>
+        <script src="../node_modules/graphlib/dist/graphlib.core.js"></script>
+        <script src="../node_modules/dagre/dist/dagre.core.js"></script>
+
+        <script src="./lib/KeyboardJS/keyboard.js"></script>
+
+        <script src="../dist/rappid.js"></script>
+
+        <script src="./src/inspector.js"></script>
+        <script src="./src/stencil.js"></script>
+        <script src="./src/main.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!--[if IE 9]>
+	    <script src="./lib/base64/base64.js"></script>
+	    <script type="text/javascript">
+	      // SVG Export requires window.btoa/atoa extension to convert binary data (the `b`)
+	      // to base64 (ascii, the `a`). Unfortunately it is not available in IE9.
+	      // To get it working under IE9 you may include compatible solution like `stringencoders`
+	      // (`https://code.google.com/p/stringencoders/source/browse/trunk/javascript/base64.js`)
+	      // and create a global alias `btoa`.
+	      window.btoa = base64.encode
+	      // `-ms-user-select: none` doesn't work in IE9
+	      document.onselectstart = function() { return false; };
+	    </script>
+	<![endif]-->
+        <script>
+            // Uncomment the following line and comment the line after if you
+            // want to use channels.
+            //var app = new Rappid({ channelUrl: 'ws://localhost:4141' });
+            var app = new Rappid;
+            Backbone.history.start();
+        </script>
+		
+		<!-- Edit config modal -->
+<div class="modal fade" id="confModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit config</h4>
+      </div>
+      <div class="modal-body">
+        <form action="">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon">First param:</span>
+              <input type="text" class="form-control" id="firstParam" placeholder="First param">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveConf" >Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+		
+		
+    </body>
+</html>

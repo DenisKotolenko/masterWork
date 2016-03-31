@@ -1,0 +1,45 @@
+Group  Lab225  "Laboratory2-25" <office>
+Group  Lab314  "Laboratory3-14" <office>
+Group SN04  "WSN04-WaspmoteSensorNode(GasesBoard)" <network> (Lab225)
+Number SN04UPT01  "Nodeuptime[%dsec]" <clock> (Lab225)
+Number SN04TEM01  "Internaltemperature[%.1fC]" <temperature> (Lab225)
+Number SN04BAT01  "Batterylevel[%d%%]" <sewerage> (Lab225)
+Number SN04ACY01  "AccelerometerY-axis[%.1fm/s^2]" <pie> (Lab225)
+Number SN04ACZ01  "AccelerometerZ-axis[%.1fm/s^2]" <pie> (Lab225)
+Number SN04APO01  "Airpollutants-Ammonia[%.1fppm]" <garden> (Lab225)
+Number SN04ACX01  "AccelerometerX-axis[%.1fm/s^2]" <pie> (Lab225)
+Number SN04LPG01  "LiquefiedPetroleumGases[%.1fppm]" <fire> (Lab225)
+Number SN04HUM01  "Humidity[%.1f%%]" <cistern> (Lab225)
+Color SN05  "WSN05-WaspmoteSensorNode" <network> (Lab225)
+Switch SN05REL01  "LightSwitch" <light> (Lab225)
+Number SN05TEM01  "Temperature[%.1fC]" <temperature> (Lab225)
+Color SN07  "WSN07-Z-WaveLightSwitch" <network> (Lab225)
+Switch SN07REL01  "LightSwitch" <light> (Lab225) {{zwave="5"}}
+Group SN08  "WSN08-Z-WaveWallPlug" <network> (Lab225)
+Switch SN08REL01  "Wallplug" <socket> (Lab225) {{zwave="2:command=switch_binary"}}
+Number SN08PWR01  "Power[%.1fW]" <energy> (Lab225) {{zwave="2:command=sensor_multilevel"}}
+Number SN08EGY01  "Energy[%.2fkWh]" <chart> (Lab225) {{zwave="2:command=meter"}}
+Group SN09  "WSN09-Z-WaveRelays" <network> (Lab225)
+Switch SN09REL02  "Relay2-Lightbulb" <light> (Lab225)
+Switch SN09REL01  "Relay1-Wallplug" <socket> (Lab225)
+Group SN10  "WSN10-Z-WaveWindowSensor" <network> (Lab225)
+Contact SN10CON01  "WindowSensor[MAP(en.map):%s]" <contact> (Lab225) {{zwave="8:command=sensor_binary,respond_to_basic=true"}}
+Number SN10BAT01  "BatteryLevel[%d%%]" <sewerage> (Lab225) {{zwave="8:command=battery"}}
+Number SN10TEM01  "Temperature[%.1f°C]" <temperature> (Lab225) {{zwave="8:2:command=sensor_multilevel,sensor_type=1"}}
+Group SN11  "WSN11-Z-WaveUniversalBinarySensor" <network> (Lab225)
+Contact SN11CON01  "Contact1" <contact> (Lab225)
+Contact SN11CON02  "Contact2" <contact> (Lab225)
+Switch SN11OUT01  "Output1" <switch> (Lab225)
+Switch SN11OUT02  "Output2" <switch> (Lab225)
+Number SN11TEM01  "Temperature" <temperature> (Lab225)
+Group SN12  "WSN12-EasyBulbRGBW" <network> (Lab225)
+Color SN12L1C  "RGBWL1" <slider> (Lab225) {{milight="bridge1;7;rgb;27"}}
+Switch SN12L1W  "RGBWL1-Whitemode"  (Lab225) {{milight="bridge1;7;whiteMode"}}
+Color SN12L2C  "RGBWL2" <slider> (Lab225) {{milight="bridge1;8;rgb;27"}}
+Color SN12L3C  "RGBWL3" <slider> (Lab225) {{milight="bridge1;9;rgb;27"}}
+Switch SN12L2W  "RGBWL2-Whitemode"  (Lab225) {{milight="bridge1;8;whiteMode"}}
+Switch SN12L3W  "RGBWL3-Whitemode"  (Lab225) {{milight="bridge1;9;whiteMode"}}
+undefined undefined  (Lab314)
+undefined undefined 
+undefined undefined 
+undefined undefined 

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Conversion to OpenHab</h2>
+<br>
+Items:
+<br>
+<textarea id="items" cols=132>Items</textarea>  <a download="conf.items" id="downloaditems" style="display: none">Download</a>
+<br>
+
+Rules:
+<br>
+<textarea id="rules" cols=132>Rules</textarea>  <a download="conf.rules" id="downloadrules" style="display: none">Download</a>
+<br>
+Persistence:
+<br>
+
+<pre id="peristence"></pre>
+<textarea id="Persistence"  cols=132>Persistence</textarea>  <a download="conf.persistence" id="downloadpersistence" style="display: none">Download</a>
+<br>
+Scripts:
+<br>
+
+<pre id="scripts"></pre>
+<textarea id="Scripts"  cols=132>Persistence</textarea>  <a download="conf.scripts" id="downloadscripts" style="display: none">Download</a>
+<br>
+Sitemaps:
+<br>
+
+<pre id="sitemaps"></pre>
+<textarea id="Sitemaps"  cols=132>Persistence</textarea>  <a download="conf.sitemaps" id="downloadsitemaps" style="display: none">Download</a>
+<br>
+<script>
+
+function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+}
+
+function ifnotempty(tester,returner) {
+  if (tester === undefined || tester === null) return "";
+  if (""+tester == "") 
+    return "";
+  return returner;
+}
+ var rules = sessionStorage.getItem('interstaterules');
+ var t1 = sessionStorage.getItem('interstate');
+  // var myJSONString = JSON.stringify(t1);
+var text = t1.replace(/\n/gi,"");
+obj = JSON.parse(text);
+items = "";
+// itemtype itemname ["labeltext"] [<iconname>] [(group1, group2, ...)] [{bindingconfig}]
+// Traženje grupa
+grupe=new Array ();
+manje="&lt;";
+vece="&gt;";
+
+for (x in obj.cells) {
+//if (obj.cells[x].type == "iot.Device")
+//    items += obj.cells[x].ohItemType+" "+obj.cells[x].ohItemName + " "+
+//      obj.cells[x].ohIconName+ " "+obj.cells[x].ohGroups+ " "+obj.cells[x].ohURI+ "\n ";
+     emb = ""+obj.cells[x].embeds;
+//     items += emb;
+     if (typeof emb == 'string' || emb instanceof String) {
+       if (0 != emb.length) {
+		if(obj.cells[x].type == "iot.Annotation"){continue;}
+		var grpName ="";
+		var labelText ="";
+		var grp;
+		for (y in obj.cells) {
+		if (""+obj.cells[x].parent== ""+obj.cells[y].id)
+			grp=obj.cells[y].attrs.grp.text;
+		}
+		var iconName ="";
+			grpName = obj.cells[x].attrs.grp.text;
+		if(obj.cells[x].type == "iot.System" || obj.cells[x].type == "iot.SubSystem"){
+			labelText = obj.cells[x].attrs[".label"].text;
+		}
+		else{
+			labelText = obj.cells[x].extraAttr.itemdisplaylabel.text;
+		}
+		if(obj.cells[x].type != "iot.System"){
+			iconName = obj.cells[x].extraAttr.icon.text;
+		}
+		if(obj.cells[x].type == "iot.System" || obj.cells[x].type == "iot.SubSystem"){
+		
+		}
+		items += "Group "+" "+grpName + " "+
+        ifnotempty(labelText, ' "'+labelText+'" ' )+
+        ifnotempty(iconName, manje+iconName+vece )+
+		ifnotempty(grp, ' ('+grp+')' )+
+          "\n";;
+         grupe.push({"name":grpName,"embeds":emb,"id":""+obj.cells[x].id});
+       }
+     }
+}
+
+for (x in obj.cells) {
+//if (obj.cells[x].type == "iot.Device")
+//    items += obj.cells[x].ohItemType+" "+obj.cells[x].ohItemName + " "+
+//      obj.cells[x].ohIconName+ " "+obj.cells[x].ohGroups+ " "+obj.cells[x].ohURI+ "\n ";
+     emb = ""+obj.cells[x].embeds;
+//     items += emb;
+     if (typeof emb == 'string' || emb instanceof String) {
+       if (0 != emb.length) {
+       continue;
+       }
+     }
+	 if(obj.cells[x].type != "iot.DeviceChannelBlock" && obj.cells[x].type != "iot.WebServiceBlock"){continue;}
+     grp="";
+     for (y in grupe) {
+       if (""+obj.cells[x].parent== ""+grupe[y].id)
+         grp=grupe[y].name;
+     }
+    //if (! isBlank(obj.cells[x].ohGroups))
+      //grp=obj.cells[x].ohGroups;
+	  items += obj.cells[x].extraAttr.itemtype.text+" "+obj.cells[x].extraAttr[".label"].text + " "+
+      ifnotempty(obj.cells[x].extraAttr.itemdisplaylabel.text, ' "'+obj.cells[x].extraAttr.itemdisplaylabel.text+'" ' );
+      if(obj.cells[x].extraAttr.icon!=undefined){
+		items+=ifnotempty(obj.cells[x].extraAttr.icon.text, manje+obj.cells[x].extraAttr.icon.text+vece)
+      }
+	  items+=ifnotempty(grp," ("+grp+ ")")+
+      ifnotempty(obj.cells[x].extraAttr.channelbinding.text," {"+obj.cells[x].extraAttr.channelbinding.text+ "}")+
+      "\n";
+     
+}
+obj = JSON.parse(rules);
+rulesstr="";
+for (x in obj)
+  rulesstr+=obj[x].rulecode+"\n";
+
+document.getElementById("items").innerHTML =items;
+document.getElementById("rules").innerHTML =rulesstr;
+
+
+var textFile = null,
+  makeTextFile = function (text) {
+    var data = new Blob([text], {type: 'text/plain'});
+    textFile = window.URL.createObjectURL(data);
+    return textFile;
+  };
+
+var linkrules = document.getElementById('downloadrules');
+    linkrules.href = makeTextFile(document.getElementById("rules").value);
+    linkrules.style.display = 'block';   
+
+var linkitems = document.getElementById('downloaditems');
+    linkitems.href = makeTextFile(document.getElementById("items").value);
+    linkitems.style.display = 'block';   
+
+
+
+
+</script>
+</body>
+</html>
