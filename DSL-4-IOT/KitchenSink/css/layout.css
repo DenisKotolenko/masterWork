@@ -38,17 +38,17 @@ file, You can obtain one at http://jointjs.com/license/rappid_academic_v1.txt
    width: 240px;
 }
 .navigator-container {
-   position: absolute;
+	margin-top: 10px;
    height: 120px;   /* toolbar height */
    right: 0;
    bottom: 20px; /* statusbar height */
-   width: 240px;
+   width: 220px;
 }
 .paper-container {
    position: absolute;
    top: 40px;   /* toolbar height */
    left: 241px;
-   right: 241px;
+   right: 0px;
    bottom: 20px; /* statusbar height */
    overflow: hidden;
 }

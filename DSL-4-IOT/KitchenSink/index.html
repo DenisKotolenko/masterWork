@@ -20,6 +20,7 @@
         <link rel="stylesheet" type="text/css" href="./css/statusbar.css" />
         <link rel="stylesheet" type="text/css" href="./css/freetransform.css" />
         <link rel="stylesheet" type="text/css" href="./css/style.css" />
+		<link rel="stylesheet" href="./lib/jsonview/jquery.jsonview.css" />
 	
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -53,7 +54,6 @@ b9tF98Mo6Oj+xzHWY67X7XWv/3ML/UZMMa8b7SjKLqUr7z2iEhyz6U0v/VS6DFwNG7fVEoRRdHDcrn8b
             <button class="btn-collapse" title="Collapse all">-</button>
         </div>
         <div class="paper-container"></div>
-        <div class="inspector-container"></div>
         <div class="navigator-container"></div>
         <div class="statusbar-container"><span class="rt-colab"></span></div>
 
@@ -71,6 +71,12 @@ b9tF98Mo6Oj+xzHWY67X7XWv/3ML/UZMMa8b7SjKLqUr7z2iEhyz6U0v/VS6DFwNG7fVEoRRdHDcrn8b
         <script src="./src/inspector.js"></script>
         <script src="./src/stencil.js"></script>
         <script src="./src/main.js"></script>
+		<script src="./src/app.js"></script>
+		
+		<script src="./lib/jsonview/jquery.jsonview.js"></script>
+		
+		<script src="./lib/bootstrapFileStyle/fileStyle.js"> </script>
+		
 	<!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<!--[if IE 9]>
@@ -113,6 +119,29 @@ b9tF98Mo6Oj+xzHWY67X7XWv/3ML/UZMMa8b7SjKLqUr7z2iEhyz6U0v/VS6DFwNG7fVEoRRdHDcrn8b
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="saveConf" >Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Load JSON library modal -->
+<div class="modal fade" id="loadElementModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Load Element from JSON</h4>
+      </div>
+      <div class="modal-body">
+			<input class="filestyle" data-buttonName="btn-success" data-buttonBefore="true" data-placeholder="No file selected" accept='.json' type="file" id="files" name="files[]" multiple />		
+			<output id="list"></output>
+			
+			<div id="customIframe"></div>
+				
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveAddedElement">Save</button>
       </div>
     </div>
   </div>

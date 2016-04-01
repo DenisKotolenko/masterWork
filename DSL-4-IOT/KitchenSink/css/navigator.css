@@ -11,10 +11,6 @@ file, You can obtain one at http://jointjs.com/license/rappid_academic_v1.txt
  or from the Rappid archive as was distributed by client IO. See the LICENSE file.*/
 
 
-.navigator-container {
-    border: 1px solid hsla(220,11%,97%,.95);;
-    border-left-color: lightgray;
-}
 .navigator > .paper {
     background-color: #ffffff;
 }

@@ -105,3 +105,26 @@ cursor: pointer;
     background-repeat: no-repeat;
 }
 
+.btn-load-element {
+	margin: 10px !important;
+	width: 85% !important;
+}
+
+#customIframe {
+	border-radius: 5px;
+	border-style: solid !important;
+	border-color: rgb(238, 238, 238) !important;
+	border: 1px;
+	overflow-y: auto;
+	height: 350px;	
+    padding: 2px;
+}
+
+.btn-default {
+	margin: 2px !important;
+}
+.bootstrap-filestyle {
+	padding-left: 5px;
+}
+
+

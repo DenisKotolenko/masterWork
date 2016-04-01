@@ -57,11 +57,11 @@ var Rappid = Backbone.Router.extend({
 
         this.graph.on('add', function(cell, collection, opt) {
             if (opt.stencil) {
-                this.createInspector(cell);
+            
                 this.commandManager.stopListening();
-                this.inspector.updateCell();
+             
                 this.commandManager.listen();
-                this.inspector.$('[data-attribute]:first').focus();
+            
             }
         }, this);
 
@@ -244,66 +244,7 @@ var Rappid = Backbone.Router.extend({
         }, this));
     },
 
-    createInspector: function(cellView) {
-
-        var cell = cellView.model || cellView;
-
-        // No need to re-render inspector if the cellView didn't change.
-        if (!this.inspector || this.inspector.options.cell !== cell) {
-
-            // Is there an inspector that has not been removed yet.
-            // Note that an inspector can be also removed when the underlying cell is removed.
-            if (this.inspector && this.inspector.el.parentNode) {
-
-                this.inspectorClosedGroups[this.inspector.options.cell.id] = _.map(app.inspector.$('.group.closed'), function(g) {
-		    return $(g).attr('data-name');
-		});
-                
-                // Clean up the old inspector if there was one.
-                this.inspector.updateCell();
-                this.inspector.remove();
-            }
-
-            var inspectorDefs = InspectorDefs[cell.get('type')];
-
-            this.inspector = new joint.ui.Inspector({
-                inputs: inspectorDefs ? inspectorDefs.inputs : CommonInspectorInputs,
-                groups: inspectorDefs ? inspectorDefs.groups : CommonInspectorGroups,
-                cell: cell
-            });
-
-            this.initializeInspectorTooltips();
-            
-            this.inspector.render();
-            $('.inspector-container').html(this.inspector.el);
-
-            if (this.inspectorClosedGroups[cell.id]) {
-
-		_.each(this.inspectorClosedGroups[cell.id], this.inspector.closeGroup, this.inspector);
-
-            } else {
-                this.inspector.$('.group:not(:first-child)').addClass('closed');
-            }
-        }
-    },
-
-    initializeInspectorTooltips: function() {
-        
-        this.inspector.on('render', function() {
-
-            this.inspector.$('[data-tooltip]').each(function() {
-
-                var $label = $(this);
-                new joint.ui.Tooltip({
-                    target: $label,
-                    content: $label.data('tooltip'),
-                    right: '.inspector',
-                    direction: 'right'
-                });
-            });
-            
-        }, this);
-    },
+  
 
     initializeHaloAndInspector: function() {
 
@@ -315,7 +256,7 @@ var Rappid = Backbone.Router.extend({
             // freetransform first. This is necessary for IE9+ where pointer-events don't work and we wouldn't
             // be able to access magnets hidden behind the div.
             var freetransform = new joint.ui.FreeTransform({ cellView: cellView, allowRotation: false });
-            var halo = new joint.ui.Halo({ cellView: cellView });
+            var halo = new joint.ui.Halo({ cellView: cellView, boxContent : "This can show info about element" });
 
             // As we're using the FreeTransform plugin, there is no need for an extra resize tool in Halo.
             // Therefore, remove the resize tool handle and reposition the clone tool handle to make the
@@ -332,10 +273,7 @@ var Rappid = Backbone.Router.extend({
             freetransform.render();
             halo.render();
 
-            this.initializeHaloTooltips(halo);
-
-            this.createInspector(cellView);
-
+            this.initializeHaloTooltips(halo);    
             this.selectionView.cancelSelection();
             this.selection.reset([cellView.model]);
             
@@ -343,7 +281,7 @@ var Rappid = Backbone.Router.extend({
 
         this.paper.on('link:options', function(evt, cellView, x, y) {
 
-            this.createInspector(cellView);
+            
         }, this);
     },
 
